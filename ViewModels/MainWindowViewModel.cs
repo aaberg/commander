@@ -5,7 +5,7 @@
         public MainWindowViewModel()
         {
             //LeftPane = new DirectoryPaneViewModel("C:\\temp");
-            LeftPane = new DirectoryPaneViewModel("/temp");
+            LeftPane = new DirectoryPaneViewModel("/");
         }
 
         public DirectoryPaneViewModel LeftPane { get; }

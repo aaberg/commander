@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using Aaberg.Commander.Models;
 using Aaberg.Commander.Services;
 using ReactiveUI;
@@ -9,21 +8,30 @@ namespace Aaberg.Commander.ViewModels
 {
     public class DirectoryPaneViewModel : ViewModelBase
     {
-        private DirectoryInfo directory;
-        private IFileSystemService fileSystemService;
+        private DirectoryEntry directory;
 
         public DirectoryPaneViewModel(string initialPath)
         {
-            directory = new DirectoryInfo(initialPath);
-            fileSystemService = new FileSystemService();
+            directory = new DirectoryEntry(new DirectoryInfo(initialPath));
         }
 
-        public DirectoryInfo Directory
+        public DirectoryEntry Directory
         {
             get => directory;
             set => this.RaiseAndSetIfChanged(ref directory, value);
         }
 
-        public IEnumerable<FileSystemInfoModel> Entries => fileSystemService.GetEntriesInDirectory(Directory).Select(info => new FileSystemInfoModel(info));
+        public void Test()
+        {
+            Console.WriteLine("Test");
+        }
+
+        public void GoOneDirectoryUp()
+        {
+            if (Directory.DirectoryInfo.Parent != null)
+            {
+                Directory = new DirectoryEntry(Directory.DirectoryInfo.Parent);
+            }
+        }
     }
 }

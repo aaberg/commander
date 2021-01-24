@@ -12,10 +12,14 @@ namespace Aaberg.Commander.Services
             return new(path);
         }
 
-        public IEnumerable<FileSystemInfo> GetEntriesInDirectory(DirectoryInfo dir)
+        public IEnumerable<IFileSystemEntry> GetEntriesInDirectory(DirectoryEntry dir)
         {
-            return dir.GetDirectories().Cast<FileSystemInfo>().Concat(dir.GetFiles());
-            
+            return 
+                dir.DirectoryInfo.GetDirectories()
+                .Where(dirInfo => (dirInfo.Attributes & FileAttributes.Hidden) == 0)
+                .Select(dirInfo => new DirectoryEntry(dirInfo))
+                .Cast<IFileSystemEntry>()
+                .Concat(dir.DirectoryInfo.GetFiles().Select(fileInfo => new FileEntry(fileInfo)));
         }
     }
 }

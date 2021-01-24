@@ -8,6 +8,6 @@ namespace Aaberg.Commander.Services
     {
         DirectoryInfo GetDirectory(string path);
 
-        IEnumerable<FileSystemInfo> GetEntriesInDirectory(DirectoryInfo dirPath);
+        IEnumerable<IFileSystemEntry> GetEntriesInDirectory(DirectoryEntry dirPath);
     }
 }

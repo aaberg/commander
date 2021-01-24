@@ -4,14 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Aaberg.Commander.Views.DirectoryPaneView">
-  <DockPanel>
+  <DockPanel KeyDown="OnKeyDown">
     <TextBox DockPanel.Dock="Top" Text="{Binding Directory.FullName}" />
-    <ListBox Items="{Binding Entries}" SelectionMode="Multiple">
+    <ListBox Items="{Binding Directory.Entries}" SelectionMode="Multiple">
+      <ListBox.Styles>
+        <Style Selector="ListBoxItem">
+          <Setter Property="Padding" Value="2" />
+        </Style>
+      </ListBox.Styles>
       <ListBox.ItemTemplate>
         <DataTemplate>
-          <WrapPanel>
+          <WrapPanel Margin="0">
             <WrapPanel.Children>
-              <Image Source="{Binding Icon}" Width="16" Height="16" Margin="4" />
+              <Image Source="{Binding Icon}" Width="16" Height="16" Margin="0" />
               <TextBlock Text="{Binding Name}" />  
             </WrapPanel.Children>
           </WrapPanel>
