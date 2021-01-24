@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Aaberg.Commander.Views.DirectoryPaneView">
+  <DockPanel>
+    <TextBox DockPanel.Dock="Top" Text="{Binding Directory.FullName}" />
+    <ListBox Items="{Binding Entries}" SelectionMode="Multiple">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <WrapPanel>
+            <WrapPanel.Children>
+              <Image Source="{Binding Icon}" Width="16" Height="16" Margin="4" />
+              <TextBlock Text="{Binding Name}" />  
+            </WrapPanel.Children>
+          </WrapPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </DockPanel>
+</UserControl>

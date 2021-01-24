@@ -1,0 +1,13 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Aaberg.Commander"
+             xmlns:commander="clr-namespace:Aaberg.Commander"
+             x:Class="Aaberg.Commander.App">
+    <Application.DataTemplates>
+        <commander:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme Mode="Light"/>
+    </Application.Styles>
+</Application>
