@@ -6,7 +6,7 @@
              x:Class="Aaberg.Commander.Views.DirectoryPaneView">
   <DockPanel KeyDown="OnKeyDown">
     <TextBox DockPanel.Dock="Top" Text="{Binding Directory.FullName}" />
-    <ListBox Items="{Binding Directory.Entries}" SelectionMode="Multiple">
+    <ListBox Items="{Binding Entries}" SelectionMode="Multiple">
       <ListBox.Styles>
         <Style Selector="ListBoxItem">
           <Setter Property="Padding" Value="2" />
