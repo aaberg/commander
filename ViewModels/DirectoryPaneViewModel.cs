@@ -24,10 +24,13 @@ namespace Aaberg.Commander.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref directory, value);
                 this.RaisePropertyChanged(nameof(Entries));
+                this.RaisePropertyChanged(nameof(InitialSelectedIndex));
             }
         }
         
         public IEnumerable<IFileSystemEntry> Entries => new FileSystemService().GetEntriesInDirectory(Directory);
+        
+        public int InitialSelectedIndex => 0;
 
         public void GoOneDirectoryUp()
         {

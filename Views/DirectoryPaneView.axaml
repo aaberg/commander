@@ -5,8 +5,8 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Aaberg.Commander.Views.DirectoryPaneView">
   <DockPanel KeyDown="OnKeyDown">
-    <TextBox DockPanel.Dock="Top" Text="{Binding Directory.FullName}" />
-    <ListBox Items="{Binding Entries}" SelectionMode="Multiple">
+    <TextBox DockPanel.Dock="Top" Text="{Binding Directory.FullName}" Focusable="False" />
+    <ListBox Items="{Binding Entries}" SelectionMode="Multiple" SelectedIndex="{Binding InitialSelectedIndex}">
       <ListBox.Styles>
         <Style Selector="ListBoxItem">
           <Setter Property="Padding" Value="2" />

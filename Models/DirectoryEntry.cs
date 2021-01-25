@@ -17,12 +17,12 @@ namespace Aaberg.Commander.Models
         }
         
         public DirectoryInfo DirectoryInfo { get; }
-        public string Name => DirectoryInfo.Name;
+        public virtual string Name => DirectoryInfo.Name;
         public string FullName => DirectoryInfo.FullName;
 
         public IEnumerable<IFileSystemEntry> Entries => new FileSystemService().GetEntriesInDirectory(this); 
 
-        public IBitmap Icon
+        public virtual IBitmap Icon
         {
             get
             {

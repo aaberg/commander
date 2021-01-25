@@ -6,15 +6,15 @@
         Title="Aaberg Commander"
         Width="800" Height="600">
 
-  <StackPanel>
+  <StackPanel Focusable="False">
     <WrapPanel>
-      <Button>toolbar 1</Button>
-      <Button>toolbar 2</Button>
+      <Button Focusable="False">toolbar 1</Button>
+      <Button Focusable="False">toolbar 2</Button>
     </WrapPanel>
     
     <Grid ColumnDefinitions="1* 10 1*" RowDefinitions="300">
       <UserControl Content="{Binding LeftPane}" Grid.Row="0" Grid.Column="0" />
-      <GridSplitter Width="10" Grid.Row="0" Grid.Column="1"></GridSplitter>
+      <GridSplitter Width="10" Grid.Row="0" Grid.Column="1" Focusable="False"></GridSplitter>
       <UserControl Content="{Binding RightPane}" Grid.Row="0" Grid.Column="2" />
     </Grid>
     

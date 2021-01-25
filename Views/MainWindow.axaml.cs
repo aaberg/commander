@@ -1,5 +1,7 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 
 namespace Aaberg.Commander.Views
@@ -17,6 +19,11 @@ namespace Aaberg.Commander.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+
+        public void OnKeyDown(object o, KeyEventArgs e)
+        {
+            Console.WriteLine("hello");
         }
     }
 }
